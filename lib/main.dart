@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
   static List<Widget> _widgetOptions = <Widget>[
     HomeScr(),
     Text(
-      'Likes',
+      'ok',
       style: optionStyle,
     ),
     Text(
