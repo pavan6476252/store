@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:provider/provider.dart';
 import 'package:store/pages/home_scr.dart';
+import 'package:store/pages/my_cart.dart';
 import 'package:store/pages/product_page.dart';
+import 'package:store/state/scaffold_state.dart';
 
 void main() {
-  runApp(MaterialApp(
-    initialRoute: '/',
-    routes: {
-      '/': (context) => MyApp(),
-      '/product_page': (context) => ProductPage()
-    },
+  runApp(MultiProvider(
+    providers: [Provider<MyScaffoldState>(create: (_) => MyScaffoldState())],
+    child: MaterialApp(
+      initialRoute: '/',
+      routes: {
+        '/': (context) => MyApp(),
+        '/product_page': (context) => ProductPage(),
+        '/my_cart': (context) => MyCart(),
+      },
+    ),
   ));
 }
 
@@ -25,7 +32,7 @@ class _MyAppState extends State<MyApp> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
-  static List<Widget> _widgetOptions = <Widget>[
+  static final List<Widget> _widgetOptions = <Widget>[
     HomeScr(),
     Text(
       'ok',
@@ -35,20 +42,22 @@ class _MyAppState extends State<MyApp> {
       'Search',
       style: optionStyle,
     ),
-    Text(
-      'Profile',
-      style: optionStyle,
-    ),
+    MyCart()
   ];
 
   @override
   Widget build(BuildContext context) {
+    MyScaffoldState myScaffoldState = context.watch<MyScaffoldState>();
+
     return Scaffold(
+      key: myScaffoldState.scaffoldState,
+      drawer: Drawer(),
       backgroundColor: Colors.white,
       appBar: null,
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
+     
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: Colors.white,

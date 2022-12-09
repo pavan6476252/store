@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:store/utils/app_bar.dart';
 import 'package:store/utils/small_utils.dart';
 
@@ -24,8 +22,11 @@ class _HomeScrState extends State<HomeScr> {
     final double itemHeight = (size.height - kToolbarHeight - 220) / 2;
     final double itemWidth = size.width / 2;
     return SafeArea(
+      
       child: Scaffold(
-        appBar: myAppBar(),
+      
+
+        appBar: myAppBar(context, "Store", null),
         body: Container(
             margin: EdgeInsets.symmetric(horizontal: 20),
             child: Column(
@@ -96,7 +97,8 @@ class _HomeScrState extends State<HomeScr> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  GestureDetector(onTap: ()=>Navigator.pushNamed(context, '/product_page'),
+                  GestureDetector(
+                    onTap: () => Navigator.pushNamed(context, '/product_page'),
                     child: Text(
                       "Nike Air Max 20",
                       style: Theme.of(context).textTheme.headline6,

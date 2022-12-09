@@ -1,11 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:store/utils/small_utils.dart';
+
+import '../utils/bottom_bar.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({super.key});
@@ -18,24 +17,23 @@ class _ProductPageState extends State<ProductPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: null,
+      bottomNavigationBar: bottomBar(context, () {
+        print("hello");
+      }),
+      appBar: header(),
       body: SafeArea(
-        child: Container(
-          child: Stack(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Column(children: [
-                  header(),
-                  verticalSpacer(25),
-                  carousel(),
-                  verticalSpacer(25),
-                ]),
-              ),
-              //bottom sheet
-              dragableBottomSheet(),
-            ],
-          ),
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Column(children: [
+                carousel(),
+                verticalSpacer(25),
+              ]),
+            ),
+            //bottom sheet
+            dragableBottomSheet(),
+          ],
         ),
       ),
     );
@@ -47,8 +45,8 @@ class _ProductPageState extends State<ProductPage> {
         initialChildSize: .52,
         minChildSize: .52,
         builder: (context, scrollController) => Container(
-              padding: EdgeInsets.only(left: 10, right: 10, top: 10),
-              decoration: BoxDecoration(
+              padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
+              decoration: const BoxDecoration(
                   color: Color.fromARGB(255, 221, 223, 224),
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
@@ -96,16 +94,6 @@ class _ProductPageState extends State<ProductPage> {
     return Column(
       children: [
         verticalSpacer(8),
-        // Container(
-        //   margin: EdgeInsets.symmetric(vertical: 8),
-        //   width: 100,
-        //   height: 10,
-        //   decoration: BoxDecoration(
-        //       color: Color.fromARGB(0, 0, 0, 0),
-        //       border: Border.all(
-        //           color: Color.fromARGB(209, 255, 255, 255), width: 3),
-        //       borderRadius: BorderRadius.circular(10)),
-        // ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -156,24 +144,32 @@ class _ProductPageState extends State<ProductPage> {
   }
 
   header() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        IconButton(
-            onPressed: () => Navigator.pop(context),
-            icon: LineIcon(
-              LineIcons.arrowLeft,
-              size: 35,
-            )),
-        CircleAvatar(
-          radius: 15,
-          backgroundColor: Colors.pinkAccent,
-          child: Icon(
-            Icons.favorite,
-            size: 18,
+    return PreferredSize(
+      preferredSize: const Size.fromHeight(80),
+      child: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(
+                  onPressed: () => Navigator.pop(context),
+                  icon: LineIcon(
+                    LineIcons.arrowLeft,
+                    size: 35,
+                  )),
+             const CircleAvatar(
+                radius: 15,
+                backgroundColor: Colors.pinkAccent,
+                child: Icon(
+                  Icons.favorite,
+                  size: 18,
+                ),
+              )
+            ],
           ),
-        )
-      ],
+        ),
+      ),
     );
   }
 }
