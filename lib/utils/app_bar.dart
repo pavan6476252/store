@@ -14,27 +14,30 @@ myAppBar(BuildContext context, String title, Widget? widget) {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            children: [
-              IconButton(
-                  onPressed: () {
-                    myScaffoldState.setDrawerState();
-                  },
-                  icon: LineIcon(
-                    LineIcons.bars,
-                    size: 32,
-                  )),
-              SizedBox(
-                width: 10,
-              ),
-              Title(
-                  color: Theme.of(context).colorScheme.primary,
-                  child: Text(
-                    title,
-                    style: Theme.of(context).textTheme.headline5,
-                  ))
-            ],
+          Expanded(
+            child: Row(
+              children: [
+                IconButton(
+                    onPressed: () {
+                      myScaffoldState.setDrawerState();
+                    },
+                    icon: LineIcon(
+                      LineIcons.bars,
+                      size: 32,
+                    )),
+                SizedBox(
+                  width: 10,
+                ),
+                Title(
+                    color: Theme.of(context).colorScheme.primary,
+                    child: Text(
+                      title,
+                      style: Theme.of(context).textTheme.headline5,
+                    ))
+              ],
+            ),
           ),
+          IconButton(onPressed: () {}, icon: LineIcon(LineIcons.search)),
           widget ?? SizedBox()
         ],
       ),

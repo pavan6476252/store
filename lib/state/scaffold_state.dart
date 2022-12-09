@@ -3,7 +3,7 @@ import 'dart:isolate';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class MyScaffoldState extends ChangeNotifier {
+class MyScaffoldState  {
   GlobalKey<ScaffoldState> scaffoldState = GlobalKey<ScaffoldState>();
 
   setDrawerState() {

@@ -35,14 +35,14 @@ class _MyAppState extends State<MyApp> {
   static final List<Widget> _widgetOptions = <Widget>[
     HomeScr(),
     Text(
-      'ok',
+      'liked',
       style: optionStyle,
     ),
+    MyCart(),
     Text(
-      'Search',
+      'user',
       style: optionStyle,
     ),
-    MyCart()
   ];
 
   @override
@@ -57,7 +57,6 @@ class _MyAppState extends State<MyApp> {
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
-     
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: Colors.white,
@@ -87,16 +86,16 @@ class _MyAppState extends State<MyApp> {
                   text: 'Home',
                 ),
                 GButton(
-                  icon: LineIcons.search,
-                  text: 'Search',
-                ),
-                GButton(
                   icon: LineIcons.heart,
-                  text: 'Likes',
+                  text: 'Liked',
                 ),
                 GButton(
                   icon: LineIcons.shoppingCart,
                   text: 'cart',
+                ),
+                GButton(
+                  icon: LineIcons.userCircle,
+                  text: 'Search',
                 ),
               ],
               selectedIndex: _selectedIndex,

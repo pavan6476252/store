@@ -29,8 +29,7 @@ class _MyCartState extends State<MyCart> {
                   color: Theme.of(context).colorScheme.background,
                   // color: Colors.grey
                 ),
-                child: Expanded(
-                    child: ListView.builder(
+                child: ListView.builder(
                   itemCount: 10,
                   itemBuilder: (context, index) {
                     List li = [];
@@ -102,7 +101,7 @@ class _MyCartState extends State<MyCart> {
                       ),
                     );
                   },
-                )))),
+                ))),
       ),
     );
   }
