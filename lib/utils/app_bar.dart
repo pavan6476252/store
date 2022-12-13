@@ -17,14 +17,14 @@ myAppBar(BuildContext context, String title, Widget? widget) {
           Expanded(
             child: Row(
               children: [
-                IconButton(
-                    onPressed: () {
-                      myScaffoldState.setDrawerState();
-                    },
-                    icon: LineIcon(
-                      LineIcons.bars,
-                      size: 32,
-                    )),
+                // IconButton(
+                //     onPressed: () {
+                //       myScaffoldState.setDrawerState();
+                //     },
+                //     icon: LineIcon(
+                //       LineIcons.bars,
+                //       size: 32,
+                //     )),
                 SizedBox(
                   width: 10,
                 ),

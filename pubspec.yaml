@@ -41,6 +41,17 @@ dependencies:
   carousel_slider: ^4.1.1
   http: ^0.13.5
   provider: ^6.0.4
+  firebase_auth: ^4.2.0
+  firebase_core: ^2.4.0
+  google_sign_in: ^5.4.2
+  expandable: ^5.0.1
+  cloud_firestore: ^4.2.0
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  path_provider: ^2.0.11
+  image_picker: ^0.8.6
+# SHA1: AE:96:CA:73:2F:77:E6:B4:06:7B:CE:21:7A:9B:9B:87:D3:1E:1D:F5
+# SHA-256: 9D:B2:66:32:6E:83:3B:98:FF:75:38:4C:4A:02:9D:17:89:25:15:FD:2A:0B:FC:F3:E0:8B:63:5C:5C:4F:C0:91
 
 dev_dependencies:
   flutter_test:

@@ -22,10 +22,7 @@ class _HomeScrState extends State<HomeScr> {
     final double itemHeight = (size.height - kToolbarHeight - 220) / 2;
     final double itemWidth = size.width / 2;
     return SafeArea(
-      
       child: Scaffold(
-      
-
         appBar: myAppBar(context, "Store", null),
         body: Container(
             margin: EdgeInsets.symmetric(horizontal: 20),
@@ -52,8 +49,7 @@ class _HomeScrState extends State<HomeScr> {
   }
 
   mainContent() {
-    var url =
-        "https://e7.pngegg.com/pngimages/323/773/png-clipart-sneakers-basketball-shoe-sportswear-nike-shoe-outdoor-shoe-running.png";
+    var url = "";
     return Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
